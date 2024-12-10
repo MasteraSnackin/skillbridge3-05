@@ -1,46 +1,104 @@
-import { ArrowRight, FileCheck, Search, Wallet } from "lucide-react";
+import { ArrowRight, Search, FileCheck, Wallet } from "lucide-react";
+import { motion } from "framer-motion";
 
 const steps = [
   {
     icon: Search,
     title: "Find Projects",
-    description: "Browse through hundreds of blockchain and crypto projects that match your skills"
+    description: "Browse through hundreds of blockchain and crypto projects that match your skills",
+    gradient: "from-blue-500 to-purple-500"
   },
   {
     icon: FileCheck,
     title: "Submit Proposals",
-    description: "Apply to projects with your best proposal and showcase your expertise"
+    description: "Apply to projects with your best proposal and showcase your expertise",
+    gradient: "from-purple-500 to-pink-500"
   },
   {
     icon: Wallet,
     title: "Get Paid in Crypto",
-    description: "Receive payments in various cryptocurrencies through smart contracts"
+    description: "Receive payments in various cryptocurrencies through smart contracts",
+    gradient: "from-pink-500 to-orange-500"
   }
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
+
 export const HowItWorks = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-muted">
+    <section className="py-24 bg-gradient-to-b from-white to-muted overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">How It Works</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+            How It Works
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Get started with SkillBridge in three simple steps
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 relative"
+        >
           {steps.map((step, index) => (
-            <div key={step.title} className="relative">
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                  <step.icon className="w-8 h-8 text-primary" />
+            <motion.div key={step.title} variants={item} className="relative">
+              <div className="group h-full">
+                <div className="relative z-10 h-full p-8 bg-white rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 rounded-xl transition-opacity duration-300`} />
+                  <div className="relative z-10">
+                    <div className="mb-6 inline-block">
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} p-4 shadow-lg transform transition-transform group-hover:scale-110 duration-300`}>
+                        <step.icon className="w-full h-full text-white" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
               </div>
+              
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                  <ArrowRight className="w-6 h-6 text-gray-400" />
-                </div>
+                <motion.div 
+                  className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 z-20"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <ArrowRight className="w-6 h-6 text-primary animate-pulse" />
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
