@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Wallet2, Menu } from "lucide-react";
+import { Wallet2, Menu, Search, User } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,14 +11,21 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-primary">CryptoLance</span>
+            <Link to="/" className="text-2xl font-bold text-primary">CryptoLance</Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-gray-600 hover:text-primary transition-colors">Find Work</a>
-            <a href="#" className="text-gray-600 hover:text-primary transition-colors">Hire Talent</a>
-            <a href="#" className="text-gray-600 hover:text-primary transition-colors">How it Works</a>
+            <Link to="/search" className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2">
+              <Search className="w-4 h-4" />
+              Find Work
+            </Link>
+            <Link to="/talents" className="text-gray-600 hover:text-primary transition-colors">Hire Talent</Link>
+            <Link to="/dashboard" className="text-gray-600 hover:text-primary transition-colors">Dashboard</Link>
+            <Link to="/profile" className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2">
+              <User className="w-4 h-4" />
+              Profile
+            </Link>
             <Button variant="outline" className="gap-2">
               <Wallet2 className="w-4 h-4" />
               Connect Wallet
@@ -35,9 +43,10 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <a href="#" className="block text-gray-600 hover:text-primary transition-colors">Find Work</a>
-            <a href="#" className="block text-gray-600 hover:text-primary transition-colors">Hire Talent</a>
-            <a href="#" className="block text-gray-600 hover:text-primary transition-colors">How it Works</a>
+            <Link to="/search" className="block text-gray-600 hover:text-primary transition-colors">Find Work</Link>
+            <Link to="/talents" className="block text-gray-600 hover:text-primary transition-colors">Hire Talent</Link>
+            <Link to="/dashboard" className="block text-gray-600 hover:text-primary transition-colors">Dashboard</Link>
+            <Link to="/profile" className="block text-gray-600 hover:text-primary transition-colors">Profile</Link>
             <Button variant="outline" className="w-full gap-2">
               <Wallet2 className="w-4 h-4" />
               Connect Wallet
