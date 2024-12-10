@@ -6,6 +6,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { Communication } from "@/components/Communication";
 import { UserManagement } from "@/components/UserManagement";
 import { ContentManagement } from "@/components/ContentManagement";
+import { FinancialManagement } from "@/components/FinancialManagement";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <Communication />
       <UserManagement />
       <ContentManagement />
+      <FinancialManagement />
       <Testimonials />
     </div>
   );
