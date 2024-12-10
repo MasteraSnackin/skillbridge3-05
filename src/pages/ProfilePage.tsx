@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { User, Mail, GitHub, Linkedin, Award, Star } from "lucide-react";
+import { User, Mail, Github, Linkedin, Award, Star } from "lucide-react";
 
 const ProfilePage = () => {
   return (
@@ -19,7 +19,7 @@ const ProfilePage = () => {
               <p className="text-gray-600 mb-4">Blockchain Developer</p>
               <div className="flex justify-center space-x-4 mb-6">
                 <button className="text-gray-600 hover:text-primary">
-                  <GitHub className="w-5 h-5" />
+                  <Github className="w-5 h-5" />
                 </button>
                 <button className="text-gray-600 hover:text-primary">
                   <Linkedin className="w-5 h-5" />

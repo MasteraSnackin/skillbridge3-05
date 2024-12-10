@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Users, Briefcase, DollarSign, Shield } from "lucide-react";
+import { Users, Briefcase, DollarSign, Shield, user } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
@@ -100,7 +100,7 @@ const DashboardPage = () => {
                   <div key={user} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                        <User className="w-5 h-5 text-primary" />
+                        <user className="w-5 h-5 text-primary" />
                       </div>
                       <div>
                         <div className="font-medium">User Name</div>
