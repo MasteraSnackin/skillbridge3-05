@@ -1,29 +1,21 @@
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
-import { JobListings } from "@/components/JobListings";
-import { Stats } from "@/components/Stats";
-import { Navigation } from "@/components/Navigation";
 import { HowItWorks } from "@/components/HowItWorks";
+import { Stats } from "@/components/Stats";
 import { Testimonials } from "@/components/Testimonials";
-import { Footer } from "@/components/Footer";
 import { Communication } from "@/components/Communication";
+import { UserManagement } from "@/components/UserManagement";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-      <main className="pt-16">
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <section className="py-16 px-4">
-          <Communication />
-        </section>
-        <JobListings />
-        <Stats />
-        <Testimonials />
-      </main>
-      <Footer />
+      <Hero />
+      <Features />
+      <HowItWorks />
+      <Stats />
+      <Communication />
+      <UserManagement />
+      <Testimonials />
     </div>
   );
 };
