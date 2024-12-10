@@ -5,6 +5,7 @@ import { Stats } from "@/components/Stats";
 import { Testimonials } from "@/components/Testimonials";
 import { Communication } from "@/components/Communication";
 import { UserManagement } from "@/components/UserManagement";
+import { ContentManagement } from "@/components/ContentManagement";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <Stats />
       <Communication />
       <UserManagement />
+      <ContentManagement />
       <Testimonials />
     </div>
   );
