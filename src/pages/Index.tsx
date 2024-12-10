@@ -7,6 +7,7 @@ import { Communication } from "@/components/Communication";
 import { UserManagement } from "@/components/UserManagement";
 import { ContentManagement } from "@/components/ContentManagement";
 import { FinancialManagement } from "@/components/FinancialManagement";
+import { SecurityManagement } from "@/components/SecurityManagement";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <UserManagement />
       <ContentManagement />
       <FinancialManagement />
+      <SecurityManagement />
       <Testimonials />
     </div>
   );
