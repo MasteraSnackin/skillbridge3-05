@@ -8,6 +8,23 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useState } from "react";
 
 interface Ticket {
   id: string;
@@ -15,12 +32,16 @@ interface Ticket {
   status: "open" | "closed" | "pending";
   priority: "low" | "medium" | "high";
   createdAt: string;
+  description?: string;
 }
 
 export const TicketsTab = ({ tickets }: { tickets: Ticket[] }) => {
   const { toast } = useToast();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const handleNewTicket = () => {
+  const handleNewTicket = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsDialogOpen(false);
     toast({
       title: "Ticket Created",
       description: "Your support ticket has been submitted successfully.",
@@ -31,7 +52,46 @@ export const TicketsTab = ({ tickets }: { tickets: Ticket[] }) => {
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <h3 className="text-lg font-semibold">Support Tickets</h3>
-        <Button onClick={handleNewTicket}>New Ticket</Button>
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <DialogTrigger asChild>
+            <Button>New Ticket</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Create New Support Ticket</DialogTitle>
+            </DialogHeader>
+            <form onSubmit={handleNewTicket} className="space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Subject</label>
+                <Input required placeholder="Enter ticket subject" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Priority</label>
+                <Select required>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select priority" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="low">Low</SelectItem>
+                    <SelectItem value="medium">Medium</SelectItem>
+                    <SelectItem value="high">High</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Description</label>
+                <Textarea
+                  required
+                  placeholder="Describe your issue"
+                  rows={4}
+                />
+              </div>
+              <Button type="submit" className="w-full">
+                Submit Ticket
+              </Button>
+            </form>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <Table>
@@ -46,7 +106,7 @@ export const TicketsTab = ({ tickets }: { tickets: Ticket[] }) => {
         </TableHeader>
         <TableBody>
           {tickets.map((ticket) => (
-            <TableRow key={ticket.id}>
+            <TableRow key={ticket.id} className="cursor-pointer hover:bg-muted/50">
               <TableCell>{ticket.id}</TableCell>
               <TableCell>{ticket.subject}</TableCell>
               <TableCell>
