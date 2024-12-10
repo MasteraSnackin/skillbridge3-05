@@ -6,6 +6,7 @@ import { Navigation } from "@/components/Navigation";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Testimonials } from "@/components/Testimonials";
 import { Footer } from "@/components/Footer";
+import { Communication } from "@/components/Communication";
 
 const Index = () => {
   return (
@@ -15,6 +16,9 @@ const Index = () => {
         <Hero />
         <Features />
         <HowItWorks />
+        <section className="py-16 px-4">
+          <Communication />
+        </section>
         <JobListings />
         <Stats />
         <Testimonials />
