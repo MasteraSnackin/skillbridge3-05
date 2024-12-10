@@ -6,7 +6,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">CryptoLance</h3>
+            <h3 className="text-xl font-bold text-white mb-4">SkillBridge</h3>
             <p className="text-sm">Decentralized freelancing platform powered by blockchain technology.</p>
           </div>
           <div>
@@ -41,7 +41,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} CryptoLance. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SkillBridge. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -11,7 +11,7 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-primary">CryptoLance</Link>
+            <Link to="/" className="text-2xl font-bold text-primary">SkillBridge</Link>
           </div>
 
           {/* Desktop Menu */}

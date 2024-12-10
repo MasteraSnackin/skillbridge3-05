@@ -9,6 +9,7 @@ import { ContentManagement } from "@/components/ContentManagement";
 import { FinancialManagement } from "@/components/FinancialManagement";
 import { SecurityManagement } from "@/components/SecurityManagement";
 import { Support } from "@/components/Support";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <SecurityManagement />
       <Support />
       <Testimonials />
+      <Footer />
     </div>
   );
 };
