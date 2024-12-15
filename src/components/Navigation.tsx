@@ -2,9 +2,20 @@ import { Button } from "@/components/ui/button";
 import { Wallet2, Menu, Search, User } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleWalletConnect = (type: string) => {
+    console.log(`Connecting to ${type} wallet...`);
+    // Wallet connection logic would go here
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
@@ -26,10 +37,22 @@ export const Navigation = () => {
               <User className="w-4 h-4" />
               Profile
             </Link>
-            <Button variant="outline" className="gap-2">
-              <Wallet2 className="w-4 h-4" />
-              Connect Wallet
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="gap-2">
+                  <Wallet2 className="w-4 h-4" />
+                  Connect Wallet
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => handleWalletConnect('metamask')}>
+                  MetaMask
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleWalletConnect('stellar')}>
+                  Stellar Wallet
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile Menu Button */}
@@ -47,10 +70,24 @@ export const Navigation = () => {
             <Link to="/talents" className="block text-gray-600 hover:text-primary transition-colors">Hire Talent</Link>
             <Link to="/dashboard" className="block text-gray-600 hover:text-primary transition-colors">Dashboard</Link>
             <Link to="/profile" className="block text-gray-600 hover:text-primary transition-colors">Profile</Link>
-            <Button variant="outline" className="w-full gap-2">
-              <Wallet2 className="w-4 h-4" />
-              Connect Wallet
-            </Button>
+            <div className="space-y-2">
+              <Button 
+                variant="outline" 
+                className="w-full gap-2"
+                onClick={() => handleWalletConnect('metamask')}
+              >
+                <Wallet2 className="w-4 h-4" />
+                Connect MetaMask
+              </Button>
+              <Button 
+                variant="outline" 
+                className="w-full gap-2"
+                onClick={() => handleWalletConnect('stellar')}
+              >
+                <Wallet2 className="w-4 h-4" />
+                Connect Stellar
+              </Button>
+            </div>
           </div>
         )}
       </div>
