@@ -3,6 +3,7 @@ import { Wallet2, Menu, Search, User } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connectMetaMask } from "@/utils/wallet";
+import { connectStellarWallet } from "@/utils/stellarWallet";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,16 +15,21 @@ import { toast } from "sonner";
 export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
+  const [walletType, setWalletType] = useState<'metamask' | 'stellar' | null>(null);
 
-  const handleWalletConnect = async (type: string) => {
+  const handleWalletConnect = async (type: 'metamask' | 'stellar') => {
     try {
+      let address;
       if (type === 'metamask') {
-        const address = await connectMetaMask();
-        setWalletAddress(address);
-        toast.success('Successfully connected to MetaMask');
+        address = await connectMetaMask();
       } else if (type === 'stellar') {
-        console.log('Connecting to Stellar wallet...');
-        // Stellar wallet connection logic would go here
+        address = await connectStellarWallet();
+      }
+      
+      if (address) {
+        setWalletAddress(address);
+        setWalletType(type);
+        toast.success(`Successfully connected to ${type === 'metamask' ? 'MetaMask' : 'Stellar'} wallet`);
       }
     } catch (error) {
       toast.error('Failed to connect wallet');
@@ -63,7 +69,7 @@ export const Navigation = () => {
                   MetaMask
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleWalletConnect('stellar')}>
-                  Stellar Wallet
+                  Stellar Wallet (Freighter)
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -91,7 +97,9 @@ export const Navigation = () => {
                 onClick={() => handleWalletConnect('metamask')}
               >
                 <Wallet2 className="w-4 h-4" />
-                {walletAddress ? `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 'Connect MetaMask'}
+                {walletType === 'metamask' && walletAddress ? 
+                  `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 
+                  'Connect MetaMask'}
               </Button>
               <Button 
                 variant="outline" 
@@ -99,7 +107,9 @@ export const Navigation = () => {
                 onClick={() => handleWalletConnect('stellar')}
               >
                 <Wallet2 className="w-4 h-4" />
-                Connect Stellar
+                {walletType === 'stellar' && walletAddress ? 
+                  `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 
+                  'Connect Stellar'}
               </Button>
             </div>
           </div>
