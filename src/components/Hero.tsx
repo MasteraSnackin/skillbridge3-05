@@ -52,9 +52,9 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Waitlist section - now with sticky positioning */}
+          {/* Waitlist section - with sticky positioning */}
           <div className="mt-12 md:mt-0 md:w-4/12">
-            <div className="md:sticky md:top-4">
+            <div className="sticky top-4">
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 space-y-4">
                 <h3 className="text-2xl font-semibold text-accent">Join Our Waitlist</h3>
                 <p className="text-sm text-gray-200">
