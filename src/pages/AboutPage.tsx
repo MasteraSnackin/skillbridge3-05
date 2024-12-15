@@ -69,7 +69,7 @@ const AboutPage = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <span className="text-primary">•</span>
-                <p className="text-muted-foreground">2nd Prize - Encode London Hackathon Winners - WeatherShield DeFi (Best DApp utilizing Flare's enshrined Data Protocols)</p>
+                <p className="text-muted-foreground">2nd Prize - Encode London Hackathon - Best DApp utilizing Flare's enshrined Data Protocols with WeatherShield DeFi</p>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary">•</span>
@@ -77,7 +77,7 @@ const AboutPage = () => {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary">•</span>
-                <p className="text-muted-foreground">1st Prize Business Analysis of Solana-Based SaaS Solutions</p>
+                <p className="text-muted-foreground">1st Prize - Business Analysis of Solana-Based SaaS Solutions</p>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary">•</span>
