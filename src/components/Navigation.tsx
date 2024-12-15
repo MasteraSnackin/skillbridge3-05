@@ -2,19 +2,33 @@ import { Button } from "@/components/ui/button";
 import { Wallet2, Menu, Search, User } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { connectMetaMask } from "@/utils/wallet";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { toast } from "sonner";
 
 export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
 
-  const handleWalletConnect = (type: string) => {
-    console.log(`Connecting to ${type} wallet...`);
-    // Wallet connection logic would go here
+  const handleWalletConnect = async (type: string) => {
+    try {
+      if (type === 'metamask') {
+        const address = await connectMetaMask();
+        setWalletAddress(address);
+        toast.success('Successfully connected to MetaMask');
+      } else if (type === 'stellar') {
+        console.log('Connecting to Stellar wallet...');
+        // Stellar wallet connection logic would go here
+      }
+    } catch (error) {
+      toast.error('Failed to connect wallet');
+      console.error('Wallet connection error:', error);
+    }
   };
 
   return (
@@ -41,7 +55,7 @@ export const Navigation = () => {
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="gap-2">
                   <Wallet2 className="w-4 h-4" />
-                  Connect Wallet
+                  {walletAddress ? `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 'Connect Wallet'}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -77,7 +91,7 @@ export const Navigation = () => {
                 onClick={() => handleWalletConnect('metamask')}
               >
                 <Wallet2 className="w-4 h-4" />
-                Connect MetaMask
+                {walletAddress ? `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 'Connect MetaMask'}
               </Button>
               <Button 
                 variant="outline" 

@@ -30,6 +30,26 @@ export const Hero = () => {
                 Post a Job
               </Button>
             </div>
+            <div className="mt-12 flex items-center justify-start space-x-4">
+              <div className="flex -space-x-4">
+                <img
+                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=100&h=100&fit=crop"
+                  alt="User"
+                  className="w-10 h-10 rounded-full border-2 border-white"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=100&h=100&fit=crop"
+                  alt="User"
+                  className="w-10 h-10 rounded-full border-2 border-white"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop"
+                  alt="User"
+                  className="w-10 h-10 rounded-full border-2 border-white"
+                />
+              </div>
+              <span className="text-sm text-gray-200">Join 1000+ professionals already using SkillBridge</span>
+            </div>
           </div>
 
           {/* Waitlist section - now with sticky positioning */}
