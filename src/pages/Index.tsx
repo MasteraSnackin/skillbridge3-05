@@ -10,6 +10,7 @@ import { FinancialManagement } from "@/components/FinancialManagement";
 import { SecurityManagement } from "@/components/SecurityManagement";
 import { Support } from "@/components/Support";
 import { Footer } from "@/components/Footer";
+import ProfilePage from "@/pages/ProfilePage";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Hero />
       <Features />
       <HowItWorks />
+      <ProfilePage />
       <Communication />
       <UserManagement />
       <ContentManagement />
