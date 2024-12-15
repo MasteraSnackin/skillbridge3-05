@@ -4,6 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider";
 import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
+import { Navigation } from "@/components/Navigation";
 
 interface Job {
   id: number;
@@ -83,8 +84,9 @@ const SearchPage = () => {
   }, [searchTerm, selectedCategory, budget, skillsFilter]);
 
   return (
-    <div className="min-h-screen pt-20 bg-background">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <div className="container mx-auto px-4 py-8 pt-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Filters Sidebar */}
           <div className="space-y-6 bg-white p-6 rounded-lg shadow-sm">
