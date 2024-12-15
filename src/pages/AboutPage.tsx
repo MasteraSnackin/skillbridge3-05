@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Users, Cpu, Handshake, Target, History } from "lucide-react";
+import { Users, Cpu, Handshake, Target, History, Trophy } from "lucide-react";
 
 const AboutPage = () => {
   return (
@@ -99,32 +99,46 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Technology Stack */}
+        {/* Technology Stack / Achievements */}
         <section className="space-y-6">
           <div className="flex items-center gap-3">
-            <Cpu className="w-8 h-8 text-primary" />
-            <h2 className="text-3xl font-bold">Technology Stack</h2>
+            <Trophy className="w-8 h-8 text-primary" />
+            <h2 className="text-3xl font-bold">Recent Achievements</h2>
           </div>
           <Separator />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Frontend</h3>
+            <Card className="p-6">
+              <h3 className="text-xl font-semibold mb-4">Encode London Hackathon</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• React with TypeScript</li>
-                <li>• Tailwind CSS for styling</li>
-                <li>• Web3.js for blockchain integration</li>
-                <li>• Progressive Web App capabilities</li>
+                <li>• 2nd Prize Winner</li>
+                <li>• Best DApp utilizing Flare's Data Protocols</li>
+                <li>• Project: WeatherShield DeFi</li>
               </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Blockchain</h3>
+            </Card>
+            <Card className="p-6">
+              <h3 className="text-xl font-semibold mb-4">AI Forge Dominos Hackathon</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Ethereum Smart Contracts</li>
-                <li>• Solidity for contract development</li>
-                <li>• IPFS for decentralized storage</li>
-                <li>• MetaMask integration</li>
+                <li>• 1st Prize Winner</li>
+                <li>• Innovative AI Solutions for Food Delivery</li>
               </ul>
-            </div>
+            </Card>
+            <Card className="p-6">
+              <h3 className="text-xl font-semibold mb-4">Solana Business Analysis</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• 1st Prize Winner</li>
+                <li>• Business Analysis of Solana-Based SaaS Solutions</li>
+                <li>• Comprehensive Market Research</li>
+              </ul>
+            </Card>
+            <Card className="p-6">
+              <h3 className="text-xl font-semibold mb-4">Technical Expertise</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• Flare Network Integration</li>
+                <li>• AI/ML Implementation</li>
+                <li>• Solana Ecosystem Development</li>
+                <li>• Full-Stack Web3 Development</li>
+              </ul>
+            </Card>
           </div>
         </section>
 
