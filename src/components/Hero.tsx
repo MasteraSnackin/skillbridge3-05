@@ -30,7 +30,7 @@ export const Hero = () => {
           </div>
           <div className="mt-8 space-y-4">
             <a 
-              href="https://waitlist-link-here" 
+              href="https://forms.gle/qu5rKXBXCkBqntc49" 
               className="inline-block text-accent hover:text-accent/90 underline font-medium"
             >
               Join our waitlist →
