@@ -12,7 +12,7 @@ import { Support } from "@/components/Support";
 import { Footer } from "@/components/Footer";
 import ProfilePage from "@/pages/ProfilePage";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, MessageSquare, LifeBuoy, Component } from "lucide-react";
+import { ArrowRight, User, Search, Home, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
@@ -24,31 +24,31 @@ const Index = () => {
       <div className="container mx-auto px-4 py-8 mt-16">
         <h2 className="text-2xl font-bold mb-6">Quick Navigation</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Link to="/features">
+          <Link to="/about">
             <Button variant="outline" className="w-full group">
-              <Component className="w-4 h-4 mr-2" />
-              Features
+              <Info className="w-4 h-4 mr-2" />
+              About Us
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
-          <Link to="/support">
+          <Link to="/search">
             <Button variant="outline" className="w-full group">
-              <LifeBuoy className="w-4 h-4 mr-2" />
-              Support
+              <Search className="w-4 h-4 mr-2" />
+              Search
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
-          <Link to="/security">
+          <Link to="/profile">
             <Button variant="outline" className="w-full group">
-              <Shield className="w-4 h-4 mr-2" />
-              Security
+              <User className="w-4 h-4 mr-2" />
+              Profile
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
-          <Link to="/communication">
+          <Link to="/dashboard">
             <Button variant="outline" className="w-full group">
-              <MessageSquare className="w-4 h-4 mr-2" />
-              Communication
+              <Home className="w-4 h-4 mr-2" />
+              Dashboard
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
