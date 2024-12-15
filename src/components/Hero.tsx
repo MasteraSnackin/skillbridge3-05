@@ -9,6 +9,7 @@ export const Hero = () => {
       }} />
       <div className="container relative z-10 mx-auto px-4 text-center text-white">
         <div className="animate-fade-in">
+          <span className="inline-block mb-4 px-3 py-1 text-sm bg-white/10 rounded-full">Example Screenshot - Demo Version</span>
           <h1 className="mb-6 text-5xl font-bold leading-tight md:text-6xl">
             The Future of Freelancing is{" "}
             <span className="text-accent animate-pulse">Decentralized</span>
