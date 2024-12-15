@@ -8,6 +8,10 @@ import SearchPage from "./pages/SearchPage";
 import ProfilePage from "./pages/ProfilePage";
 import DashboardPage from "./pages/DashboardPage";
 import AboutPage from "./pages/AboutPage";
+import FeaturesPage from "./pages/FeaturesPage";
+import SupportPage from "./pages/SupportPage";
+import SecurityPage from "./pages/SecurityPage";
+import CommunicationPage from "./pages/CommunicationPage";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +27,10 @@ const App = () => (
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/support" element={<SupportPage />} />
+          <Route path="/security" element={<SecurityPage />} />
+          <Route path="/communication" element={<CommunicationPage />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
