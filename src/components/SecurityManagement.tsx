@@ -51,7 +51,6 @@ export const SecurityManagement = () => {
 
   return (
     <div className="space-y-6 p-6">
-      {/* Security Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="p-4">
           <div className="flex items-center space-x-2">
@@ -98,10 +97,9 @@ export const SecurityManagement = () => {
         </Card>
       </div>
 
-      {/* Security Logs */}
       <Card>
         <CardHeader>
-          <CardTitle>Security Logs</CardTitle>
+          <CardTitle>Security Logs <Badge variant="secondary">Demo</Badge></CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">

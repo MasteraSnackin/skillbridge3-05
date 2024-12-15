@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileSharing } from "@/components/FileSharing";
 import { MessageSquare, Video, Globe, Send, Paperclip } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface Message {
   id: string;
@@ -61,7 +62,7 @@ export const Communication = () => {
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
-        <CardTitle>Communication Hub</CardTitle>
+        <CardTitle>Communication Hub <Badge variant="secondary">Demo</Badge></CardTitle>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="chat">

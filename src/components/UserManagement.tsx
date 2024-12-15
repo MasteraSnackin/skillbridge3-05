@@ -52,6 +52,10 @@ export const UserManagement = () => {
   };
 
   return (
+    <Card className="w-full max-w-4xl mx-auto">
+      <CardHeader>
+        <CardTitle>User Management <Badge variant="secondary">Demo</Badge></CardTitle>
+      </CardHeader>
     <div className="space-y-6 p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="p-4">
@@ -142,5 +146,6 @@ export const UserManagement = () => {
         </div>
       </div>
     </div>
+    </Card>
   );
 };

@@ -89,7 +89,7 @@ export const ContentManagement = () => {
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
-        <CardTitle>Content Management</CardTitle>
+        <CardTitle>Content Management <Badge variant="secondary">Demo</Badge></CardTitle>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="pending">

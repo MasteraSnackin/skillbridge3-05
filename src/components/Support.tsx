@@ -85,7 +85,7 @@ export const Support = () => {
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
-        <CardTitle>Support Center</CardTitle>
+        <CardTitle>Support Center <Badge variant="secondary">Demo</Badge></CardTitle>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="tickets" className="space-y-4">

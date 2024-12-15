@@ -99,7 +99,7 @@ export const FinancialManagement = () => {
       {/* Transaction Monitoring */}
       <Card>
         <CardHeader>
-          <CardTitle>Recent Transactions</CardTitle>
+          <CardTitle>Recent Transactions <Badge variant="secondary">Demo</Badge></CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
@@ -158,7 +158,7 @@ export const FinancialManagement = () => {
       {/* Fee Management */}
       <Card>
         <CardHeader>
-          <CardTitle>Fee Management</CardTitle>
+          <CardTitle>Fee Management <Badge variant="secondary">Demo</Badge></CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
