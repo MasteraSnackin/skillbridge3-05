@@ -28,9 +28,27 @@
     overflow-x: hidden;
   }
 
-  /* Smooth section transitions */
+  /* Enhanced section transitions */
   section {
-    @apply transition-all duration-300 ease-in-out;
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  /* Interactive elements */
+  .interactive-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95;
+  }
+
+  .interactive-glow {
+    @apply transition-all duration-300 hover:animate-glow;
+  }
+
+  .interactive-slide {
+    @apply opacity-0 animate-slideUp;
+  }
+
+  /* Section dividers */
+  .section-divider {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-8;
   }
 
   /* Improved mobile responsiveness */
@@ -57,12 +75,30 @@
     @apply animate-pulse bg-gray-200;
   }
 
-  /* Interactive feedback */
-  .interactive {
-    @apply transition-all duration-200;
+  /* Progressive disclosure */
+  .disclosure-content {
+    @apply max-h-0 overflow-hidden transition-all duration-300;
   }
 
-  .interactive:active {
-    @apply transform scale-95;
+  .disclosure-content.open {
+    @apply max-h-screen;
+  }
+
+  /* Enhanced hover states */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .hover-bright {
+    @apply transition-all duration-300 hover:brightness-110;
+  }
+
+  /* Micro-interactions */
+  .micro-bounce {
+    @apply transition-transform active:scale-95;
+  }
+
+  .micro-highlight {
+    @apply transition-colors duration-200 hover:bg-primary/5;
   }
 }
