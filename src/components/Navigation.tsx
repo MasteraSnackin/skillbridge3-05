@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Settings, Menu, Search, User, LogOut, BriefcaseIcon, PlusCircle } from "lucide-react";
-import { useState } from "react";
+import { Settings, Menu, Search, User, LogOut, BriefcaseIcon, PlusCircle, ArrowUp } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connectMetaMask } from "@/utils/wallet";
 import { connectStellarWallet } from "@/utils/stellarWallet";
@@ -16,6 +16,31 @@ export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [walletType, setWalletType] = useState<'metamask' | 'stellar' | null>(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show back to top button after scrolling 400px
+      setShowBackToTop(window.scrollY > 400);
+      
+      // Calculate scroll progress
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setScrollProgress(scrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const handleWalletConnect = async (type: 'metamask' | 'stellar') => {
     try {
@@ -44,8 +69,10 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
-      <div className="container mx-auto px-4">
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b transition-all duration-300">
+        <div className="absolute bottom-0 left-0 h-0.5 bg-primary" style={{ width: `${scrollProgress}%` }} />
+        <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-bold text-primary">SkillBridge - Demo Page</Link>
@@ -160,7 +187,19 @@ export const Navigation = () => {
             </Button>
           </div>
         )}
-      </div>
-    </nav>
+        </div>
+      </nav>
+
+      {/* Back to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 p-3 rounded-full bg-primary text-white shadow-lg transition-all duration-300 hover:bg-primary/90 hover:scale-110 ${
+          showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+        }`}
+        aria-label="Back to top"
+      >
+        <ArrowUp className="w-6 h-6" />
+      </button>
+    </>
   );
 };
