@@ -16,6 +16,7 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   * {
@@ -24,10 +25,44 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
   }
 
   /* Smooth section transitions */
   section {
     @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Improved mobile responsiveness */
+  @media (max-width: 640px) {
+    .container {
+      @apply px-4;
+    }
+
+    h1 {
+      @apply text-3xl;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    .btn {
+      @apply w-full;
+    }
+  }
+
+  /* Loading states */
+  .loading {
+    @apply animate-pulse bg-gray-200;
+  }
+
+  /* Interactive feedback */
+  .interactive {
+    @apply transition-all duration-200;
+  }
+
+  .interactive:active {
+    @apply transform scale-95;
   }
 }
