@@ -1,4 +1,4 @@
-import { ArrowRight, Search, FileCheck, Wallet } from "lucide-react";
+import { ArrowRight, Search, FileCheck, Wallet, Section } from "lucide-react";
 import { motion } from "framer-motion";
 
 const steps = [
@@ -40,7 +40,7 @@ const item = {
 
 export const HowItWorks = () => {
   return (
-    <section className="py-section bg-gradient-to-b from-white to-muted overflow-hidden">
+    <section className="py-section bg-gradient-to-b from-white to-muted overflow-hidden border-t border-b border-muted">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,9 +49,12 @@ export const HowItWorks = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-            How It Works
-          </h2>
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <Section className="w-6 h-6 text-primary" />
+            <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
+              How It Works
+            </h2>
+          </div>
           <p className="text-lg text-muted-foreground">
             Get started with SkillBridge in three simple steps
           </p>
