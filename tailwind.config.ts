@@ -28,16 +28,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#6366F1",
+          DEFAULT: "#8B5CF6",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#3B82F6",
+          DEFAULT: "#9b87f5",
           foreground: "#ffffff",
         },
         accent: {
-          DEFAULT: "#2DD4BF",
-          foreground: "#ffffff",
+          DEFAULT: "#F2FCE2",
+          foreground: "#1A1F2C",
         },
         muted: {
           DEFAULT: "#F3F4F6",
@@ -57,11 +57,16 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 3s ease-in-out infinite",
+        "fade-in": "fade-in 0.5s ease-out forwards",
       },
     },
   },
