@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Settings, Menu, Search, User, LogOut } from "lucide-react";
+import { Settings, Menu, Search, User, LogOut, BriefcaseIcon, PlusCircle } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connectMetaMask } from "@/utils/wallet";
@@ -57,8 +57,16 @@ export const Navigation = () => {
               <Search className="w-4 h-4" />
               Find Work
             </Link>
-            <Link to="/dashboard" className="text-gray-600 hover:text-primary transition-colors">Dashboard</Link>
+            <Link to="/dashboard" className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2">
+              <BriefcaseIcon className="w-4 h-4" />
+              Dashboard
+            </Link>
             
+            <Button variant="secondary" className="gap-2">
+              <PlusCircle className="w-4 h-4" />
+              Join Waitlist
+            </Button>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -112,6 +120,13 @@ export const Navigation = () => {
             <Link to="/search" className="block text-gray-600 hover:text-primary transition-colors">Find Work</Link>
             <Link to="/dashboard" className="block text-gray-600 hover:text-primary transition-colors">Dashboard</Link>
             <Link to="/profile" className="block text-gray-600 hover:text-primary transition-colors">Profile</Link>
+            <Button 
+              variant="secondary" 
+              className="w-full gap-2"
+            >
+              <PlusCircle className="w-4 h-4" />
+              Join Waitlist
+            </Button>
             <Button 
               variant="outline" 
               className="w-full gap-2"
