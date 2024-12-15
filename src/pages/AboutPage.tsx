@@ -99,8 +99,8 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Technology Stack / Achievements */}
-        <section className="space-y-6">
+        {/* Recent Achievements */}
+        <section className="space-y-6 mb-16">
           <div className="flex items-center gap-3">
             <Trophy className="w-8 h-8 text-primary" />
             <h2 className="text-3xl font-bold">Recent Achievements</h2>
@@ -128,15 +128,6 @@ const AboutPage = () => {
                 <li>• 1st Prize Winner</li>
                 <li>• Business Analysis of Solana-Based SaaS Solutions</li>
                 <li>• Comprehensive Market Research</li>
-              </ul>
-            </Card>
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-4">Technical Expertise</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Flare Network Integration</li>
-                <li>• AI/ML Implementation</li>
-                <li>• Solana Ecosystem Development</li>
-                <li>• Full-Stack Web3 Development</li>
               </ul>
             </Card>
           </div>
