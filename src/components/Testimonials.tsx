@@ -5,19 +5,19 @@ const testimonials = [
   {
     name: "Alex Thompson",
     role: "Blockchain Developer",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
     content: "CryptoLance has transformed how I find blockchain projects. The smart contract payments give me peace of mind."
   },
   {
     name: "Sarah Chen",
     role: "Project Manager",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
     content: "As a client, finding qualified crypto developers has never been easier. The platform is intuitive and secure."
   },
   {
     name: "Michael Roberts",
     role: "Smart Contract Engineer",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
     content: "The quality of projects and clients on CryptoLance is outstanding. I've found consistent work here."
   }
 ];
@@ -32,7 +32,11 @@ export const Testimonials = () => {
             <Card key={testimonial.name} className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-4">
                 <Avatar className="h-10 w-10">
-                  <img src={testimonial.image} alt={testimonial.name} />
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name}
+                    className="object-cover w-full h-full"
+                  />
                 </Avatar>
                 <div className="ml-4">
                   <div className="font-semibold">{testimonial.name}</div>
