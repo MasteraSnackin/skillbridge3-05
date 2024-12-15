@@ -66,7 +66,7 @@ export const Navigation = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Link to="/" className="text-2xl font-bold text-primary">
-                SkillBridge - Demo Page
+                SkillBridge
               </Link>
             </div>
 
