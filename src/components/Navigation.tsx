@@ -17,6 +17,8 @@ import {
 } from "@/components/ui/tooltip";
 import { WalletConnect } from "./navigation/WalletConnect";
 import { MobileMenu } from "./navigation/MobileMenu";
+import { connectMetaMask } from "@/utils/wallet";
+import { connectStellarWallet } from "@/utils/stellarWallet";
 
 export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
