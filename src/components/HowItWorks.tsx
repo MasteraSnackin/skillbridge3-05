@@ -6,19 +6,19 @@ const steps = [
     icon: Search,
     title: "Find Projects",
     description: "Browse through hundreds of blockchain and crypto projects that match your skills",
-    gradient: "from-blue-500 to-purple-500"
+    gradient: "from-primary/20 to-primary/10"
   },
   {
     icon: FileCheck,
     title: "Submit Proposals",
     description: "Apply to projects with your best proposal and showcase your expertise",
-    gradient: "from-purple-500 to-pink-500"
+    gradient: "from-primary/20 to-primary/10"
   },
   {
     icon: Wallet,
     title: "Get Paid in Crypto",
     description: "Receive payments in various cryptocurrencies through smart contracts",
-    gradient: "from-pink-500 to-orange-500"
+    gradient: "from-primary/20 to-primary/10"
   }
 ];
 
@@ -40,7 +40,7 @@ const item = {
 
 export const HowItWorks = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-muted overflow-hidden">
+    <section className="py-section bg-gradient-to-b from-white to-muted overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export const HowItWorks = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+          <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
             How It Works
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -62,20 +62,20 @@ export const HowItWorks = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 relative"
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 relative"
         >
           {steps.map((step, index) => (
             <motion.div key={step.title} variants={item} className="relative">
               <div className="group h-full">
-                <div className="relative z-10 h-full p-8 bg-white rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 rounded-xl transition-opacity duration-300`} />
+                <div className="relative z-10 h-full p-8 bg-white rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300`} />
                   <div className="relative z-10">
                     <div className="mb-6 inline-block">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} p-4 shadow-lg transform transition-transform group-hover:scale-110 duration-300`}>
-                        <step.icon className="w-full h-full text-white" />
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 p-4 transition-all duration-300 group-hover:bg-primary/20 transform group-hover:scale-110">
+                        <step.icon className="w-full h-full text-primary" />
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-semibold mb-3 transition-colors duration-300 group-hover:text-primary">
                       {step.title}
                     </h3>
                     <p className="text-muted-foreground">
