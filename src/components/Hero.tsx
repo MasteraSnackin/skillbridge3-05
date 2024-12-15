@@ -32,21 +32,23 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Waitlist section */}
-          <div className="mt-12 md:mt-0 md:w-4/12 md:text-left">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 space-y-4">
-              <h3 className="text-2xl font-semibold text-accent">Join Our Waitlist</h3>
-              <p className="text-sm text-gray-200">
-                As a special thank you for joining our early community, we are excited to offer you a 14-day free trial when we launch. 
-                This will allow you to explore all the features and benefits our platform has to offer without any commitment. 
-                Additionally, we will personally reach out to ensure you have a smooth onboarding experience and to gather your valuable feedback.
-              </p>
-              <a 
-                href="https://forms.gle/qu5rKXBXCkBqntc49" 
-                className="inline-block text-accent hover:text-accent/90 underline font-medium"
-              >
-                Join now →
-              </a>
+          {/* Waitlist section - now with sticky positioning */}
+          <div className="mt-12 md:mt-0 md:w-4/12">
+            <div className="md:sticky md:top-4">
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 space-y-4">
+                <h3 className="text-2xl font-semibold text-accent">Join Our Waitlist</h3>
+                <p className="text-sm text-gray-200">
+                  As a special thank you for joining our early community, we are excited to offer you a 14-day free trial when we launch. 
+                  This will allow you to explore all the features and benefits our platform has to offer without any commitment. 
+                  Additionally, we will personally reach out to ensure you have a smooth onboarding experience and to gather your valuable feedback.
+                </p>
+                <a 
+                  href="https://forms.gle/qu5rKXBXCkBqntc49" 
+                  className="inline-block text-accent hover:text-accent/90 underline font-medium"
+                >
+                  Join now →
+                </a>
+              </div>
             </div>
           </div>
         </div>
