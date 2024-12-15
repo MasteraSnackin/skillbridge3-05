@@ -2,6 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartContainer } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Users, DollarSign, AlertTriangle, Activity } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const revenueData = [
   { month: "Jan", amount: 12000 },
@@ -13,6 +16,10 @@ const revenueData = [
 ];
 
 const AdminDashboard = () => {
+  const handleDisputeAction = (id: string, action: 'resolve' | 'escalate') => {
+    toast.success(`Dispute ${id} ${action === 'resolve' ? 'resolved' : 'escalated'}`);
+  };
+
   return (
     <div className="space-y-6">
       {/* Platform Statistics */}
@@ -89,8 +96,9 @@ const AdminDashboard = () => {
 
       {/* Dispute Management Queue */}
       <Card>
-        <CardHeader>
+        <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>Active Disputes</CardTitle>
+          <Badge variant="secondary">{23} Total</Badge>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -101,6 +109,7 @@ const AdminDashboard = () => {
                 priority: "High",
                 status: "Open",
                 date: "2024-02-20",
+                description: "Client reports delayed payment for completed milestone.",
               },
               {
                 id: "D-002",
@@ -108,6 +117,7 @@ const AdminDashboard = () => {
                 priority: "Medium",
                 status: "Under Review",
                 date: "2024-02-19",
+                description: "Disagreement over additional feature requests.",
               },
               {
                 id: "D-003",
@@ -115,27 +125,58 @@ const AdminDashboard = () => {
                 priority: "High",
                 status: "Escalated",
                 date: "2024-02-18",
+                description: "Client unsatisfied with deliverable quality standards.",
               },
             ].map((dispute) => (
               <div
                 key={dispute.id}
-                className="flex items-center justify-between p-4 border rounded-lg"
+                className="flex flex-col space-y-4 p-4 border rounded-lg hover:bg-accent/50 transition-colors"
               >
-                <div>
-                  <h4 className="font-medium">{dispute.title}</h4>
-                  <p className="text-sm text-muted-foreground">ID: {dispute.id}</p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span
-                    className={`px-2 py-1 text-xs rounded-full ${
-                      dispute.priority === "High"
-                        ? "bg-red-100 text-red-800"
-                        : "bg-yellow-100 text-yellow-800"
-                    }`}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-medium flex items-center gap-2">
+                      {dispute.title}
+                      <Badge
+                        variant={dispute.priority === "High" ? "destructive" : "secondary"}
+                      >
+                        {dispute.priority}
+                      </Badge>
+                    </h4>
+                    <p className="text-sm text-muted-foreground mt-1">ID: {dispute.id}</p>
+                  </div>
+                  <Badge
+                    variant={
+                      dispute.status === "Escalated"
+                        ? "destructive"
+                        : dispute.status === "Open"
+                        ? "secondary"
+                        : "default"
+                    }
                   >
-                    {dispute.priority}
+                    {dispute.status}
+                  </Badge>
+                </div>
+                <p className="text-sm text-muted-foreground">{dispute.description}</p>
+                <div className="flex items-center justify-between pt-2">
+                  <span className="text-sm text-muted-foreground">
+                    Opened: {dispute.date}
                   </span>
-                  <span className="text-sm text-muted-foreground">{dispute.date}</span>
+                  <div className="flex gap-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleDisputeAction(dispute.id, 'resolve')}
+                    >
+                      Resolve
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      onClick={() => handleDisputeAction(dispute.id, 'escalate')}
+                    >
+                      Escalate
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
