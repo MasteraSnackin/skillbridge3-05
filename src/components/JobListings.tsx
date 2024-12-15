@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { CategoryFilter } from "./filters/CategoryFilter";
 
 const jobs = [
   {
@@ -101,30 +102,18 @@ export const JobListings = () => {
         {/* Filters Section */}
         <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-            <div className="space-y-2">
-              <Label>Category</Label>
-              <Select value={filters.category} onValueChange={(value) => setFilters(prev => ({ ...prev, category: value }))}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select category" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
-                  <SelectItem value="Blockchain">Blockchain</SelectItem>
-                  <SelectItem value="Design">Design</SelectItem>
-                  <SelectItem value="Development">Development</SelectItem>
-                  <SelectItem value="Security">Security</SelectItem>
-                  <SelectItem value="Management">Management</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+            <CategoryFilter 
+              value={filters.category}
+              onValueChange={(value) => setFilters(prev => ({ ...prev, category: value }))}
+            />
 
             <div className="space-y-2">
               <Label>Job Type</Label>
               <Select value={filters.type} onValueChange={(value) => setFilters(prev => ({ ...prev, type: value }))}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-white">
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-white">
                   <SelectItem value="all">All Types</SelectItem>
                   <SelectItem value="Full-time">Full-time</SelectItem>
                   <SelectItem value="Contract">Contract</SelectItem>
@@ -136,10 +125,10 @@ export const JobListings = () => {
             <div className="space-y-2">
               <Label>Location</Label>
               <Select value={filters.location} onValueChange={(value) => setFilters(prev => ({ ...prev, location: value }))}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-white">
                   <SelectValue placeholder="Select location" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-white">
                   <SelectItem value="all">All Locations</SelectItem>
                   <SelectItem value="Remote">Remote</SelectItem>
                   <SelectItem value="Hybrid">Hybrid</SelectItem>
@@ -151,10 +140,10 @@ export const JobListings = () => {
             <div className="space-y-2">
               <Label>Experience</Label>
               <Select value={filters.experience} onValueChange={(value) => setFilters(prev => ({ ...prev, experience: value }))}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-white">
                   <SelectValue placeholder="Select experience" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-white">
                   <SelectItem value="all">All Experience</SelectItem>
                   <SelectItem value="2-4 years">2-4 years</SelectItem>
                   <SelectItem value="3-5 years">3-5 years</SelectItem>
