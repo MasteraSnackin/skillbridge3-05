@@ -132,40 +132,6 @@ const AboutPage = () => {
             </Card>
           </div>
         </section>
-
-        {/* Partnerships */}
-        <section className="space-y-6 mb-16">
-          <div className="flex items-center gap-3">
-            <Handshake className="w-8 h-8 text-primary" />
-            <h2 className="text-3xl font-bold">Partnerships</h2>
-          </div>
-          <Separator />
-          <div className="space-y-6">
-            {[
-              {
-                name: "TechCorp Solutions",
-                type: "Technology Partner",
-                description: "Providing advanced blockchain infrastructure"
-              },
-              {
-                name: "SecureChain",
-                type: "Security Partner",
-                description: "Ensuring platform and transaction security"
-              },
-              {
-                name: "Global Freelancers Association",
-                type: "Community Partner",
-                description: "Supporting freelancer education and growth"
-              }
-            ].map((partner, index) => (
-              <div key={index} className="space-y-2">
-                <h3 className="text-xl font-semibold">{partner.name}</h3>
-                <p className="text-primary font-medium">{partner.type}</p>
-                <p className="text-muted-foreground">{partner.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
       </main>
 
       <Footer />
