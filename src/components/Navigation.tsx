@@ -62,7 +62,11 @@ export const Navigation = () => {
               Dashboard
             </Link>
             
-            <Button variant="secondary" className="gap-2">
+            <Button 
+              variant="secondary" 
+              className="gap-2"
+              onClick={() => window.open('https://forms.gle/kHe5HWCkVPgL7N347', '_blank')}
+            >
               <PlusCircle className="w-4 h-4" />
               Join Waitlist
             </Button>
@@ -123,6 +127,7 @@ export const Navigation = () => {
             <Button 
               variant="secondary" 
               className="w-full gap-2"
+              onClick={() => window.open('https://forms.gle/kHe5HWCkVPgL7N347', '_blank')}
             >
               <PlusCircle className="w-4 h-4" />
               Join Waitlist
