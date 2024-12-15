@@ -48,7 +48,7 @@ const initialJobs: Job[] = [
 const SearchPage = () => {
   const [budget, setBudget] = useState([0, 10000]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [filteredJobs, setFilteredJobs] = useState<Job[]>(initialJobs);
   const [skillsFilter, setSkillsFilter] = useState("");
 
@@ -63,7 +63,7 @@ const SearchPage = () => {
 
       // Category filter
       const categoryMatch = 
-        !selectedCategory || job.category === selectedCategory;
+        selectedCategory === "all" || job.category === selectedCategory;
 
       // Budget range filter
       const budgetMatch = 
@@ -98,10 +98,10 @@ const SearchPage = () => {
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All Categories</SelectItem>
-                      <SelectItem value="Blockchain">Blockchain</SelectItem>
-                      <SelectItem value="Design">Design</SelectItem>
-                      <SelectItem value="Development">Development</SelectItem>
+                      <SelectItem value="all">All Categories</SelectItem>
+                      <SelectItem value="blockchain">Blockchain</SelectItem>
+                      <SelectItem value="design">Design</SelectItem>
+                      <SelectItem value="development">Development</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
