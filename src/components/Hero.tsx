@@ -28,6 +28,19 @@ export const Hero = () => {
               Post a Job
             </Button>
           </div>
+          <div className="mt-8 space-y-4">
+            <a 
+              href="https://waitlist-link-here" 
+              className="inline-block text-accent hover:text-accent/90 underline font-medium"
+            >
+              Join our waitlist →
+            </a>
+            <p className="text-sm text-gray-200 max-w-2xl mx-auto">
+              As a special thank you for joining our early community, we are excited to offer you a 14-day free trial when we launch. 
+              This will allow you to explore all the features and benefits our platform has to offer without any commitment. 
+              Additionally, we will personally reach out to ensure you have a smooth onboarding experience and to gather your valuable feedback.
+            </p>
+          </div>
         </div>
       </div>
     </div>
