@@ -6,6 +6,7 @@ import { TicketsTab } from "./support/TicketsTab";
 import { FAQsTab } from "./support/FAQsTab";
 import { FeedbackTab } from "./support/FeedbackTab";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
 
 interface Ticket {
   id: string;
@@ -120,3 +121,4 @@ export const Support = () => {
     </Card>
   );
 };
+
