@@ -12,7 +12,7 @@ import { Support } from "@/components/Support";
 import { Footer } from "@/components/Footer";
 import ProfilePage from "@/pages/ProfilePage";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, MessageSquare, LifeBuoy, Component } from "lucide-react";
+import { ArrowRight, Shield, MessageSquare, LifeBuoy, Component, Info, Search, User, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
@@ -49,6 +49,34 @@ const Index = () => {
             <Button variant="outline" className="w-full group">
               <MessageSquare className="w-4 h-4 mr-2" />
               Communication
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
+          <Link to="/about">
+            <Button variant="outline" className="w-full group">
+              <Info className="w-4 h-4 mr-2" />
+              About Us
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
+          <Link to="/search">
+            <Button variant="outline" className="w-full group">
+              <Search className="w-4 h-4 mr-2" />
+              Search
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
+          <Link to="/profile">
+            <Button variant="outline" className="w-full group">
+              <User className="w-4 h-4 mr-2" />
+              Profile
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
+          <Link to="/dashboard">
+            <Button variant="outline" className="w-full group">
+              <Home className="w-4 h-4 mr-2" />
+              Dashboard
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
