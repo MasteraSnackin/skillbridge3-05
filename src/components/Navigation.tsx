@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Wallet2, Menu, Search, User } from "lucide-react";
+import { Settings, Menu, Search, User, LogOut } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connectMetaMask } from "@/utils/wallet";
@@ -37,6 +37,12 @@ export const Navigation = () => {
     }
   };
 
+  const handleLogout = () => {
+    setWalletAddress(null);
+    setWalletType(null);
+    toast.success('Successfully logged out');
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4">
@@ -46,21 +52,38 @@ export const Navigation = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             <Link to="/search" className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2">
               <Search className="w-4 h-4" />
               Find Work
             </Link>
-            <Link to="/talents" className="text-gray-600 hover:text-primary transition-colors">Hire Talent</Link>
             <Link to="/dashboard" className="text-gray-600 hover:text-primary transition-colors">Dashboard</Link>
-            <Link to="/profile" className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2">
-              <User className="w-4 h-4" />
-              Profile
-            </Link>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Settings className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem>
+                  <Link to="/profile" className="flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    Profile
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLogout}>
+                  <span className="flex items-center gap-2">
+                    <LogOut className="w-4 h-4" />
+                    Logout
+                  </span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="gap-2">
-                  <Wallet2 className="w-4 h-4" />
                   {walletAddress ? `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 'Connect Wallet'}
                 </Button>
               </DropdownMenuTrigger>
@@ -78,7 +101,7 @@ export const Navigation = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              <Menu />
+              <Menu className="w-6 h-6" />
             </Button>
           </div>
         </div>
@@ -87,31 +110,34 @@ export const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
             <Link to="/search" className="block text-gray-600 hover:text-primary transition-colors">Find Work</Link>
-            <Link to="/talents" className="block text-gray-600 hover:text-primary transition-colors">Hire Talent</Link>
             <Link to="/dashboard" className="block text-gray-600 hover:text-primary transition-colors">Dashboard</Link>
             <Link to="/profile" className="block text-gray-600 hover:text-primary transition-colors">Profile</Link>
-            <div className="space-y-2">
-              <Button 
-                variant="outline" 
-                className="w-full gap-2"
-                onClick={() => handleWalletConnect('metamask')}
-              >
-                <Wallet2 className="w-4 h-4" />
-                {walletType === 'metamask' && walletAddress ? 
-                  `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 
-                  'Connect MetaMask'}
-              </Button>
-              <Button 
-                variant="outline" 
-                className="w-full gap-2"
-                onClick={() => handleWalletConnect('stellar')}
-              >
-                <Wallet2 className="w-4 h-4" />
-                {walletType === 'stellar' && walletAddress ? 
-                  `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 
-                  'Connect Stellar'}
-              </Button>
-            </div>
+            <Button 
+              variant="outline" 
+              className="w-full gap-2"
+              onClick={() => handleWalletConnect('metamask')}
+            >
+              {walletType === 'metamask' && walletAddress ? 
+                `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 
+                'Connect MetaMask'}
+            </Button>
+            <Button 
+              variant="outline" 
+              className="w-full gap-2"
+              onClick={() => handleWalletConnect('stellar')}
+            >
+              {walletType === 'stellar' && walletAddress ? 
+                `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : 
+                'Connect Stellar'}
+            </Button>
+            <Button 
+              variant="ghost" 
+              className="w-full gap-2"
+              onClick={handleLogout}
+            >
+              <LogOut className="w-4 h-4" />
+              Logout
+            </Button>
           </div>
         )}
       </div>
