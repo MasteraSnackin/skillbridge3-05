@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Users, Cpu, Handshake, Target } from "lucide-react";
+import { Users, Cpu, Handshake, Target, History } from "lucide-react";
 
 const AboutPage = () => {
   return (
@@ -55,6 +55,47 @@ const AboutPage = () => {
               <p className="text-lg text-primary">Innovator in Web3 and AI Technology</p>
               <p className="text-muted-foreground">Experienced Financial Markets Analyst | Strategic Leader in IPO Audits</p>
             </div>
+          </div>
+        </section>
+
+        {/* Journey So Far */}
+        <section className="space-y-6">
+          <div className="flex items-center gap-3">
+            <History className="w-8 h-8 text-primary" />
+            <h2 className="text-3xl font-bold">Journey So Far</h2>
+          </div>
+          <Separator />
+          <div className="space-y-4">
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <span className="text-primary">•</span>
+                <p className="text-muted-foreground">Began Community interaction in Oct 24</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary">•</span>
+                <p className="text-muted-foreground">Participate in Easy A Hackathon</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary">•</span>
+                <p className="text-muted-foreground">Don't win the hackathon 😞</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary">•</span>
+                <p className="text-muted-foreground">Judges recognized potential</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary">•</span>
+                <p className="text-muted-foreground">Received free ticket to Meridian 24</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary">•</span>
+                <p className="text-muted-foreground">Gained access to new knowledge & inspiration</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary">•</span>
+                <p className="text-muted-foreground">Encouraged to apply for Kickstart program</p>
+              </li>
+            </ul>
           </div>
         </section>
 
